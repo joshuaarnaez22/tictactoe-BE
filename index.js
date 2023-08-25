@@ -9,12 +9,10 @@ app.use(cors());
 const port = 3000;
 
 // Middleware, routes, and other Express configurations here...
-const uri =
-  "mongodb+srv://tictactoe:tictactoe123@interviewtictactoe.b9do21h.mongodb.net/?retryWrites=true&w=majority";
 // MongoDB connection function
 async function connectToMongoDB() {
   try {
-    await mongoose.connect(uri, {
+    await mongoose.connect(process.env.DATABASE_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
